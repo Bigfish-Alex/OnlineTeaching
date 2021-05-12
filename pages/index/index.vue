@@ -75,7 +75,7 @@
 				职业入门
 			</view>
 			<view class="course_primary_flow">
-				<view class="course_warp" v-for="(item,index) in arr">
+				<view class="course_warp" v-for="(item,index) in arr" @click="toDetails()">
 					<image src="../../static/img/index/course_demo1.jpeg" mode="widthFix"></image>
 					<view class="course_name">
 						家政入门课程{{index}}
@@ -177,7 +177,11 @@
 
 		},
 		methods: {
-
+			toDetails(){
+				uni.navigateTo({
+					url:'../course/course_details'
+				})
+			}
 		}
 	}
 </script>

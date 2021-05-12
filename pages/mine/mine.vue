@@ -23,7 +23,7 @@
 			</view>
 			<view class="bar">
 				<image src="../../static/img/mine/menu_03.png" mode="widthFix" class="icon"></image>
-				关于
+				关于我们
 				<image src="../../static/img/more.png" mode="widthFix" class="more"></image>
 			</view>
 		</view>
