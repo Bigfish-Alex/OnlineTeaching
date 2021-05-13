@@ -73,6 +73,10 @@
 		<view class="course_primary">
 			<view class="title">
 				职业入门
+				<view class="more_c" @click="toCategory">
+					更多课程
+					<image src="../../static/img/more.png" mode="widthFix"></image>
+				</view>
 			</view>
 			<view class="course_primary_flow">
 				<view class="course_warp" v-for="(item,index) in arr" @click="toDetails()">
@@ -143,7 +147,7 @@
 		
 		
 		<view class="recommend_course">
-			<view class="course" v-for="item in course">
+			<view class="course" v-for="item in course" @click="toDetails()">
 				<view class="course_poster">
 					<image src="../../static/img/index/course_demo.png" mode="widthFix"></image>
 				</view>
@@ -180,6 +184,11 @@
 			toDetails(){
 				uni.navigateTo({
 					url:'../course/course_details'
+				})
+			},
+			toCategory(){
+				uni.navigateTo({
+					url:'../course/course_category'
 				})
 			}
 		}

@@ -128,6 +128,22 @@
 	.title{
 		font-size: 32upx;
 		font-weight: bold;
+		position: relative;
+		width: 100%;
+		.more_c{
+			position: absolute;
+			right: 0;
+			top: 0;
+			display: inline-block;
+			font-size: 28upx;
+			font-weight: normal;
+			color: #666;
+			image{
+				width: 22upx;
+				position: relative;
+				top: 1upx;
+			}
+		}
 	}
 	.course_primary_flow{
 		padding: 20upx 0 0;

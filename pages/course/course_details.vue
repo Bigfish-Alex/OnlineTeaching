@@ -39,17 +39,39 @@
 			<view @click="switchTab(1)" :class="[current_tab==1?'active':'']">目录(10个课时)</view>
 		</view>
 		
-		<view class="margin_title">
+		<view class="margin_title" v-if="current_tab==0">
 			课程简介
 		</view>
 		
-		<view class="course_intro">
+		<view class="course_intro" v-if="current_tab==0">
 			<image src="../../static/img/index/course_demo1.jpeg" mode="widthFix"></image>
 			<image src="../../static/img/index/course_demo.png" mode="widthFix"></image>
 			<image src="../../static/img/index/course_demo1.jpeg" mode="widthFix"></image>
 			<image src="../../static/img/index/course_demo.png" mode="widthFix"></image>
 			<image src="../../static/img/index/course_demo1.jpeg" mode="widthFix"></image>
 			<image src="../../static/img/index/course_demo.png" mode="widthFix"></image>
+		</view>
+		
+		<view class="course_directory" v-if="current_tab==1">
+			<view class="video_list">
+				<view class="flex_video_warp" @click="toLearn" v-for="item in course">
+					<view class="poster_warp">
+						<image src="../../static/img/index/course_demo1.jpeg" class="poster" mode="widthFix"></image>
+						<view class="mask">
+							<image src="../../static/img/course/play.png" mode="widthFix"></image>
+						</view>
+					</view>
+					<view class="video_info">
+						<view class="title">
+							第一节 面试前的准备
+						</view>
+						<view class="time">
+							<text>20分20秒</text>
+							<text>已看0%</text>
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
 		
 		<view class="empty_bar">
@@ -78,7 +100,8 @@
 	export default {
 		data() {
 			return {
-				current_tab:0
+				current_tab:0,
+				course:[1,2,3,4,5,6,7,8,9]
 			}
 		},
 		methods: {

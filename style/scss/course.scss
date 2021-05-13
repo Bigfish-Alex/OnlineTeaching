@@ -395,3 +395,53 @@ page{
 		}
 	}
 }
+
+.course_directory{
+	box-sizing: border-box;
+	padding: 20upx 5%;
+	background: #FFFFFF;
+	margin-top: -18upx;
+	.video_list{
+		.flex_video_warp{
+			display: flex;
+			margin-bottom: 24upx;
+			.poster_warp{
+				flex-basis: 120upx;
+				position: relative;
+				.poster{
+					width: 100%;
+				}
+				.mask{
+					position: absolute;
+					background: rgba(0,0,0,0.3);
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					image{
+						width: 50upx;
+						height: 50upx;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translateX(-50%) translateY(-50%);
+					}
+				}
+			}
+			.video_info{
+				flex-grow: 1;
+				width: 0;
+				box-sizing: border-box;
+				padding-left: 20upx;
+				.title{
+					font-size: 28upx;
+					color: #333333;
+				}
+				.time{
+					color: #999999;
+					font-size: 26upx;
+				}
+			}
+		}
+	}
+}
