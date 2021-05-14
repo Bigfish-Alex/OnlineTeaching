@@ -7,7 +7,7 @@
 			</view>
 			 <view class="bottom_bar">
 			 	张老师邀请您一同学习
-				<text>联系老师</text>
+				<text @click="isShowContact=true;">联系老师</text>
 			 </view>
 		</view>		
 		
@@ -93,6 +93,35 @@
 				</view>
 			</view>
 		</view>
+		
+		<view class="contact_mask" v-show="isShowContact">
+			<view class="mask_content">
+				<view class="top_info">
+					<image class="avatar" src="../../static/img/mine/avatar.png" mode="widthFix"></image>
+					<view class="teacher">
+						<text>张老师</text>
+						<text>18800000000</text>
+					</view>
+					<view class="shop">
+						家政中心
+					</view>
+				</view>
+				<view class="bottom_info">
+					<view class="tips">
+						如果对课程有任何疑问，可以直接联系我们，我们将竭尽全力为你解决技能、工作机会的问题
+					</view>
+					<view class="button_container">
+						<view class="b_button">
+							复制手机号加微信
+						</view>
+						<view class="w_button">
+							拨打电话联系老师
+						</view>
+					</view>
+				</view>
+				<image @click="isShowContact=false" class="close" src="../../static/img/close.png" mode="widthFix"></image>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -101,7 +130,8 @@
 		data() {
 			return {
 				current_tab:0,
-				course:[1,2,3,4,5,6,7,8,9]
+				course:[1,2,3,4,5,6,7,8,9],
+				isShowContact:false
 			}
 		},
 		methods: {

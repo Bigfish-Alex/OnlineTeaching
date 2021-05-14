@@ -16,7 +16,7 @@
 				<text>催乳产康</text>
 				<text>其他专区</text>
 			</view>
-			<view class="course_list">
+			<view class="course_list" @click="toDetails">
 				<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y" @scrolltoupper="upper" @scrolltolower="lower" @scroll="scroll">
 					<view class="c_title">
 						热门推荐
@@ -99,6 +99,11 @@
 				uni.showToast({
 					icon:"none",
 					title:"纵向滚动 scrollTop 值已被修改为 0"
+				})
+			},
+			toDetails(){
+				uni.navigateTo({
+					url:'course_details'
 				})
 			}
 		}

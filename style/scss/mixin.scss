@@ -1,0 +1,23 @@
+/* 文本阴影 */
+@mixin text-show($h-shadow:0px, $v-shadow:0px, $blur:10px, $color:rgba(0,180,255,0.7)) {
+  text-shadow: $h-shadow $v-shadow $blur $color;
+}
+
+/* 遮罩层 */
+@mixin fix-mask($z-index:9) {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: $z-index;
+	background: rgba(0,0,0,0.3);
+}
+
+/* 遮罩层 内容居中 */
+@mixin mask-content-center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}

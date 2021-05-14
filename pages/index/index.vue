@@ -4,25 +4,25 @@
 			<image class="banner" src="../../static/img/index/banner.jpg" mode="widthFix"></image>
 		</view>
 		<view class="flex_box">
-			<view class="flex_item">
+			<view class="flex_item" @click="uniRouter('../course/course_category')">
 				<view class="color_warp">
 					<image src="../../static/img/index/01.png" mode="widthFix"></image>
 				</view>
 				培训拿高薪
 			</view>
-			<view class="flex_item">
+			<view class="flex_item" @click="toast('找工作')">
 				<view class="color_warp color_2">
 					<image src="../../static/img/index/02.png" mode="widthFix"></image>
 				</view>
 				一键找工作
 			</view>
-			<view class="flex_item">
+			<view class="flex_item" @click="uniRouter('../mine/about_us')">
 				<view class="color_warp color_3">
 					<image src="../../static/img/index/03.png" mode="widthFix"></image>
 				</view>
 				公司介绍
 			</view>
-			<view class="flex_item">
+			<view class="flex_item" @click="uniRouter('../course/share_course_list')">
 				<view class="color_warp color_4">
 					<image src="../../static/img/index/04.png" mode="widthFix"></image>
 				</view>
@@ -165,6 +165,40 @@
 				</view>
 			</view>
 		</view>
+		
+		<view class="hover_service" @click="isShowContact=true">
+			<image src="../../static/img/service.png" mode="widthFix"></image>
+			<text>联系老师</text>
+		</view>
+		
+		<view class="contact_mask" v-show="isShowContact">
+			<view class="mask_content">
+				<view class="top_info">
+					<image class="avatar" src="../../static/img/mine/avatar.png" mode="widthFix"></image>
+					<view class="teacher">
+						<text>张老师</text>
+						<text>18800000000</text>
+					</view>
+					<view class="shop">
+						家政中心
+					</view>
+				</view>
+				<view class="bottom_info">
+					<view class="tips">
+						如果对课程有任何疑问，可以直接联系我们，我们将竭尽全力为你解决技能、工作机会的问题
+					</view>
+					<view class="button_container">
+						<view class="b_button">
+							复制手机号加微信
+						</view>
+						<view class="w_button">
+							拨打电话联系老师
+						</view>
+					</view>
+				</view>
+				<image @click="isShowContact=false" class="close" src="../../static/img/close.png" mode="widthFix"></image>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -174,11 +208,12 @@
 			return {
 				title: 'Hello',
 				arr:[1,2,3,4],
-				course:[1,2,3,4]
+				course:[1,2,3,4],
+				isShowContact:false
 			}
 		},
 		onLoad() {
-
+			
 		},
 		methods: {
 			toDetails(){

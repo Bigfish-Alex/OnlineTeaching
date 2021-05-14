@@ -1,7 +1,10 @@
 <template>
 	<view>
 		<view class="info_warp">
-			<view class="user_container">
+			<view class="empty_mp_bar" v-if="isShowEmptyBar">
+				
+			</view>
+			<view class="user_container" @click="toLogin">
 				<image class="avatar" src="../../static/img/mine/avatar.png" mode="widthFix"></image>
 				<view class="userinfo">
 					<view class="username">用户名</view>
@@ -11,17 +14,17 @@
 		</view>
 		
 		<view class="menu_bar">
-			<view class="bar">
+			<view class="bar" @click="uniRouter('../mine/mine_earning')">
 				<image src="../../static/img/mine/menu_01.png" mode="widthFix" class="icon"></image>
 				我的收益
 				<image src="../../static/img/more.png" mode="widthFix" class="more"></image>
 			</view>
-			<view class="bar">
+			<view class="bar" @click="uniRouter('mine_coupon')">
 				<image src="../../static/img/mine/menu_02.png" mode="widthFix" class="icon"></image>
 				优惠卷
 				<image src="../../static/img/more.png" mode="widthFix" class="more"></image>
 			</view>
-			<view class="bar">
+			<view class="bar" @click="uniRouter('about_us')">
 				<image src="../../static/img/mine/menu_03.png" mode="widthFix" class="icon"></image>
 				关于我们
 				<image src="../../static/img/more.png" mode="widthFix" class="more"></image>
@@ -34,11 +37,20 @@
 	export default {
 		data() {
 			return {
-				
+				isShowEmptyBar:false
 			}
 		},
+		onLoad() {
+		 // #ifdef MP-WEIXIN
+		 this.isShowEmptyBar = true;
+		 // #endif	
+		},
 		methods: {
-			
+			toLogin(){
+				uni.navigateTo({
+					url:'../login/login'
+				})
+			}
 		}
 	}
 </script>
@@ -46,6 +58,10 @@
 <style lang="scss">
 	page{
 		background: $mainBgColor;
+	}
+	.empty_mp_bar{
+		width: 100%;
+		height: 80upx;
 	}
 	.menu_bar{
 		margin-top: 20upx;

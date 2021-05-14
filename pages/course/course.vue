@@ -8,7 +8,7 @@
 		<view class="course_list">
 			
 			<view class="course_warp" v-if="course.length>0">
-				<view class="course" v-for="item in course">
+				<view class="course" @click="toDetails" v-for="item in course">
 					<view class="course_poster">
 						<image src="../../static/img/index/course_demo1.jpeg" mode="widthFix"></image>
 					</view>
@@ -32,6 +32,7 @@
 				暂无课程
 			</view>
 		</view>
+		
 	</view>
 </template>
 
@@ -52,6 +53,11 @@
 				}else{
 					this.course = [];
 				}
+			},
+			toDetails(){
+				uni.navigateTo({
+					url:'course_details'
+				})
 			}
 		}
 	}
